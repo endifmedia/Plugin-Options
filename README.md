@@ -29,7 +29,7 @@ Setting up the tab navigation for your plugin is super simple. Declare a variabl
 $tabs = array('tabname');
 
 You can add multiple strings to build a large tab navigation structure.
-$tabs = array('General', 'Payment', 'Stats', 'Email Templates');
+    $tabs = array('General', 'Payment', 'Stats', 'Email Templates');
 
 You can set these to whatever you want them to be, but generally, the first letter should be uppercase and words should be separated by a space.
 
@@ -37,22 +37,22 @@ You can set these to whatever you want them to be, but generally, the first lett
 
 Option fields are a little more in depth. First, setup a mixed array with the tabs you created in the last step. Again, the first letter should be uppercase and words should be separated with a space.
 
-$options = array(
-	'General' => '',
-	'Payment' => '',
-)
+    $options = array(
+        'General' => '',
+        'Payment' => '',
+    )
 
 Next add an array of options to the tab name array. The values the Plugin_Options class exp
 
-$options = array(
-	'General' => array(
-		array('option_label', 'input_name', 'input_type', array('array', of', 'select', 'option', 'values'), 'input_notes'),
-	),
-	'Post Settings' => array(
-		array('Check for new posts', 'check_posts', 'select', array('daily', 'weekly', 'monthly'), ''),
-		array('Date', 'post_date', 'select', array('Today\'s date', 'Original'), '', ''),
-	)
-)
+    $options = array(
+        'General' => array(
+            array('option_label', 'input_name', 'input_type', array('array', of', 'select', 'option', 'values'), 'input_notes'),
+        ),
+        'Post Settings' => array(
+            array('Check for new posts', 'check_posts', 'select', array('daily', 'weekly', 'monthly'), ''),
+            array('Date', 'post_date', 'select', array('Today\'s date', 'Original'), '', ''),
+        )
+    )
 
 
 option_label - The label for the form input. It will show up on the left next to your input.
