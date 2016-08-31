@@ -56,9 +56,13 @@ Next add an array of options to the tab name array. The values the Plugin_Option
 
 
 option_label - The label for the form input. It will show up on the left next to your input.
+
 input_name -  The name of the input. This is the unique identifier for each input picked up by php's post object when the form is sumbmitted.
+
 input_type - The type of input you want to use. Currently the Plugin_Options class supports text, select, checkbox, and url input types.
+
 array() - The fourth index is an array of option values for the 'select' input_type. Leave this blank '' when the input_type is not set to 'select'.
+
 input_notes - Any notes you want to add to an input box. Basically a description toyour plugin users about the input. Notes appear next to checkboxes and directly below all others.
 
 
