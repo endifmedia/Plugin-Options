@@ -98,11 +98,14 @@ options - The fourth index is an array of option values for the 'select' input_t
 #Retrieving your options:
 
 The settings page for your plugin will be completly handeled by the Plugin Options class. Though, at some point you will need 
-to use the saved option. You can call get_option('your_plugin_settings') anywhere in your code to get the current settings. The returned value will be and array.
+to use the saved option. You can call get_option('your_plugin_settings') anywhere in your code to get the current settings. The returned value will be an array.
 
-Using retrieved options:
+##Using retrieved options:
 
 The easiest way is to set your options to a variable.
-    $settings = get_option(plugin_name_settings) 
-Then you can call the index of the array 
-    $settings['url'];
+
+    $settings = get_option(plugin_name_settings); 
+
+Then you can call the index of the array. 
+
+    $my_option = $settings['index_name'];
