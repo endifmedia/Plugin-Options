@@ -7,7 +7,7 @@
  * @since      0.2.1
  *
  * @package    Plugin_Options
- *@author     Ethan Allen <yourfriendethan@gmail.com>
+ * @author     Ethan Allen
  */
 class Plugin_Options {
 
