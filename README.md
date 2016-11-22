@@ -36,58 +36,22 @@ Option fields are a little more in depth. First, setup a function that returns a
 
     $options = array(
 		/** General Settings */
-		'general' => apply_filters( 'filter_name',
+		'tab1' => apply_filters( 'filter_name',
 			array(
 				'input_name' => array(
 					'id'   => 'input_name',
 					'label' => __( 'Other', 'plugin-namespace' ),
 					'desc' => '',
-					'type' => 'text',
-					'tooltip_title' => __( 'Page Settings', 'easy-digital-downloads' ),
-					'tooltip_desc'  => __( 'Easy Digital Downloads uses the pages below for handling the display of checkout, purchase confirmation, purchase history, and purchase failures. If pages are deleted or removed in some way, they can be recreated manually from the Pages menu. When re-creating the pages, enter the shortcode shown in the page content area.','easy-digital-downloads' ),
+					'type' => 'text'
 				)			
 			)	
 		),
-		/** Payment Gateways Settings */
-		'business' => apply_filters('filter_name',
-			array(
-				'business_website' => array(
-					'id'   => 'business_website',
-					'label' => __( 'Business Website', 'text-domain' ),
-					'desc' => __( '', '' ),
-					'type' => 'url',
-				),			
-			)
-		),
-		/** Payment Gateways Settings */
-		'quotes' => apply_filters('filter_name',
-			array(
-				'quote_life' => array(
-					'id'   => 'quote_life',
-					'label' => __( 'Quote Life', 'invoice-app' ),
-					'desc' => __( 'days', 'invoice-app' ),
-					'type' => 'text',
-					'size' => 'small',
-				),			
-			)
-		),
-		'invoices' => apply_filters('filter_name',
-			array(				
-				'terms' => array(
-					'id'   => 'invoice_terms',
-					'label' => __( 'Invoice Terms', 'invoice-app' ),
-					'desc' => __( '', 'invoice-app' ),
-					'type' => 'textarea',
-					//'std'  => '7 days',
-				),		
-			)
-		),
-		'payments' => apply_filters('filter_name',
+		'tab2' => apply_filters('filter_name',
 			array(					
 				'currency_code' => array(
-					'id'      => 'currency_code',
-					'label'    => __( 'Currency Code', 'invoice-app' ),
-					'desc'    => __( '', 'invoice-app' ),
+					'id'      => 'input_name',
+					'label'    => __( 'Currency Code', 'plugin-namespace' ),
+					'desc'    => __( '', 'plugin-namespace' ),
 					'type'    => 'select',
 					'options' => array(
 						'USD' => 'U.S. Dollar',
@@ -122,16 +86,13 @@ Option fields are a little more in depth. First, setup a function that returns a
     );
     return apply_filters( 'filter_name_group', $options );
 
+id -  The name of the input. This is the unique identifier for each input picked up by php's post object when the form is sumbmitted.
 
-option_label - The label for the form input. It will show up on the left next to your input.
+label - The label for the form input. It will show up on the left next to your input.
 
-input_name -  The name of the input. This is the unique identifier for each input picked up by php's post object when the form is sumbmitted.
+type - The type of input you want to use. Currently the Plugin_Options class supports text, select, checkbox, and url input types.
 
-input_type - The type of input you want to use. Currently the Plugin_Options class supports text, select, checkbox, and url input types.
-
-array() - The fourth index is an array of option values for the 'select' input_type. Leave this blank '' when the input_type is not set to 'select'.
-
-input_notes - Any notes you want to add to an input box. Basically a description toyour plugin users about the input. Notes appear next to checkboxes and directly below all others.
+options - The fourth index is an array of option values for the 'select' input_type. Leave this blank '' when the input_type is not set to 'select'.
 
 
 #Retrieving your options:
