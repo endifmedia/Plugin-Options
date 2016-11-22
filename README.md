@@ -26,16 +26,13 @@ There are two sections that need to be setup for the Plugin_Options class to wor
 #Tabs:
 
 Setting up the tab navigation for your plugin is super simple. Declare a variable and set it to the current active tab.
-$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'general';
+    $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'general';
 
-You can add multiple strings to build a large tab navigation structure.
-    $tabs = array('General', 'Payment', 'Stats', 'Email Templates');
-
-You can set these to whatever you want them to be, but generally, the first letter should be uppercase and words should be separated by a space.
+You can set these to whatever you want them to be, but generally, the words should be uppercase and separated by a space.
 
 #Option Fields:
 
-Option fields are a little more in depth. First, setup a mixed array with the tabs you created in the last step. Again, the first letter should be uppercase and words should be separated with a space.
+Option fields are a little more in depth. First, setup a mixed array with the tabs you created in the last step. Again, the words should lowercase and separated with a space.
 
     $options = array(
         'General' => '',
@@ -45,14 +42,92 @@ Option fields are a little more in depth. First, setup a mixed array with the ta
 Next add an array of options to the tab name array. The values the Plugin_Options class exp
 
     $options = array(
-        'General' => array(
-            array('option_label', 'input_name', 'input_type', array('array', of', 'select', 'option', 'values'), 'input_notes'),
-        ),
-        'Post Settings' => array(
-            array('Check for new posts', 'check_posts', 'select', array('daily', 'weekly', 'monthly'), ''),
-            array('Date', 'post_date', 'select', array('Today\'s date', 'Original'), '', ''),
-        )
-    )
+		/** General Settings */
+		'general' => apply_filters( 'filter_name',
+			array(
+				'input_name' => array(
+					'id'   => 'input_name',
+					'label' => __( 'Other', 'plugin-namespace' ),
+					'desc' => '',
+					'type' => 'text',
+					'tooltip_title' => __( 'Page Settings', 'easy-digital-downloads' ),
+					'tooltip_desc'  => __( 'Easy Digital Downloads uses the pages below for handling the display of checkout, purchase confirmation, purchase history, and purchase failures. If pages are deleted or removed in some way, they can be recreated manually from the Pages menu. When re-creating the pages, enter the shortcode shown in the page content area.','easy-digital-downloads' ),
+				)			
+			)	
+		),
+		/** Payment Gateways Settings */
+		'business' => apply_filters('filter_name',
+			array(
+				'business_website' => array(
+					'id'   => 'business_website',
+					'label' => __( 'Business Website', 'text-domain' ),
+					'desc' => __( '', '' ),
+					'type' => 'url',
+				),			
+			)
+		),
+		/** Payment Gateways Settings */
+		'quotes' => apply_filters('filter_name',
+			array(
+				'quote_life' => array(
+					'id'   => 'quote_life',
+					'label' => __( 'Quote Life', 'invoice-app' ),
+					'desc' => __( 'days', 'invoice-app' ),
+					'type' => 'text',
+					'size' => 'small',
+				),			
+			)
+		),
+		'invoices' => apply_filters('filter_name',
+			array(				
+				'terms' => array(
+					'id'   => 'invoice_terms',
+					'label' => __( 'Invoice Terms', 'invoice-app' ),
+					'desc' => __( '', 'invoice-app' ),
+					'type' => 'textarea',
+					//'std'  => '7 days',
+				),		
+			)
+		),
+		'payments' => apply_filters('filter_name',
+			array(					
+				'currency_code' => array(
+					'id'      => 'currency_code',
+					'label'    => __( 'Currency Code', 'invoice-app' ),
+					'desc'    => __( '', 'invoice-app' ),
+					'type'    => 'select',
+					'options' => array(
+						'USD' => 'U.S. Dollar',
+						'AUD' => 'Austrailian Dollar',
+						'BRL' => 'Brazilian Real',
+						'CAD' => 'Canadian Dollar',
+						'CZK' => 'Czech Koruna',
+						'DKK' => 'Danish Krone',
+						'EUR' => 'EURO',
+						'HKD' => 'Hong Kong Dollar',
+						'HUF' => 'Hungarian Forint',
+						'ILS' => 'Israeli New Sheqel',
+						'JPY' => 'Japanese Yen',
+						'MYR' => 'Malaysian Ringgit',
+						'MXN' => 'Mexican Peso',
+						'NOK' => 'Norwegian Krone',
+						'NZD' => 'New Zealand Dollar',
+						'PHP' => 'Philippine Peso',
+						'PLN' => 'Polish Zloty',
+						'GBP' => 'Pound Sterling',
+						'SGD' => 'Singapore Dollar',
+						'SEK' => 'Swedish Krona',
+						'CHF' => 'Swiss Franc',
+						'TWD' => 'Taiwan New Dollar',
+						'THB' => 'Thai Baht',
+						'TRY' => 'Turkish Lira',
+					)
+				),		
+			)	
+		),
+
+    );
+    return apply_filters( 'filter_name_group', $options );
 
 
 option_label - The label for the form input. It will show up on the left next to your input.
