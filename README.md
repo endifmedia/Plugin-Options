@@ -26,6 +26,7 @@ There are two sections that need to be setup for the Plugin_Options class to wor
 #Tabs:
 
 Setting up the tab navigation for your plugin is super simple. Declare a variable and set it to the current active tab.
+    
     $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'general';
 
 You can set these to whatever you want them to be, but generally, the words should be uppercase and separated by a space.
