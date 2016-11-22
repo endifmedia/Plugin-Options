@@ -7,13 +7,13 @@ Way up in the top of your admin class (or whatever you are using) in your constr
 
     public function __construct() {
 
-		$this->options = new Plugin_Options('Post Sync', 'post_sync_settings', $this->plugin_name . '_menu_page');
+		$this->options = new Plugin_Options('plugin_name', 'option_name', 'menu_page_name');
 
 	}
 
 The Plugin_Settings class accepts 3 arguements when intializing the class.
 
-The first arguement ('Post Sync') is used by the Plugin_Settings class to display the title at the top of your settings page.
+The first arguement ('plugin_name') is used by the Plugin_Settings class to display the title at the top of your settings page.
 
 The second arguement is the name of your plugin options variable ( get_option('plugin_name_opt')) ) WordPress will expect this to be an underscore '_' separated string. The Plugin_Options class will save all of your settings into one option in the WordPress database.
 
