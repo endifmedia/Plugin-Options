@@ -175,11 +175,7 @@ class Plugin_Options {
 		                    	$html .= '<br><small>' . $field['desc'] . '</small>';
 
 		                    break;  
-
-
-		                    /*ob_start();
-			wp_editor( stripslashes( $value ), 'edd_settings_' . esc_attr( $args['id'] ), array( 'textarea_name' => 'edd_settings[' . esc_attr( $args['id'] ) . ']', 'textarea_rows' => absint( $rows ) ) );
-			$html = ob_get_clean();*/
+		             
 		            }
 		        }
 		    }
@@ -196,40 +192,7 @@ class Plugin_Options {
 	 * @since    0.1
 	 */
 	public function save_form($active_tab, $options){
-
-	    /*foreach ($options[$this->unslugify($active_tab, $tabs)] as $optionset) {
-			$opt_name  = $optionset[1];
-			$opt_type  = $optionset[2];
-
-            switch ($opt_type) {
-                case 'text':
-
-                    $this->plugin_settings[$opt_name] = sanitize_text_field($_POST[$opt_name]);
-
-                    break;
-                case 'checkbox':
-                    
-                    $this->plugin_settings[$opt_name] = intval($_POST[$opt_name]);
-
-                    break;
-
-                case 'url':
-                    //$opt_name = sanitize_
-                    $this->plugin_settings[$opt_name] = esc_url_raw($_POST[$opt_name]);
-
-                    break;
-
-                default:
-            		# code...
-                	$this->plugin_settings[$opt_name] = sanitize_text_field($_POST[$opt_name]);
-
-            		break;
-            }
-
-            update_option($this->plugin_option_name, $this->plugin_settings);
- 
-        }*/
-
+		
         //for each option[current tab}
         foreach ($options as $tab => $fields) { //tabs and fields
 
