@@ -102,5 +102,7 @@ to use the saved option. You can call get_option('your_plugin_settings') anywher
 
 Using retrieved options:
 
-The easiest way is to set your options to a variable ($settings = get_option(plugin_name_settings)) then you can call the index
-of the array $settings['url'];
+The easiest way is to set your options to a variable.
+    $settings = get_option(plugin_name_settings) 
+Then you can call the index of the array 
+    $settings['url'];
