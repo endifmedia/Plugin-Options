@@ -32,14 +32,7 @@ You can set these to whatever you want them to be, but generally, the words shou
 
 #Option Fields:
 
-Option fields are a little more in depth. First, setup a mixed array with the tabs you created in the last step. Again, the words should lowercase and separated with a space.
-
-    $options = array(
-        'General' => '',
-        'Payment' => '',
-    )
-
-Next add an array of options to the tab name array. The values the Plugin_Options class exp
+Option fields are a little more in depth. First, setup a function that returns an array (see example below). Again, the words should lowercase and separated with a space.
 
     $options = array(
 		/** General Settings */
