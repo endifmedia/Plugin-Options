@@ -27,7 +27,7 @@ class Plugin_Options {
 	 * @access   private
 	 * @var      string    $version    The option name of this plugin.
 	 */
-     private $plugin_option_name;
+        private $plugin_option_name;
 
 	/**
 	 * The plugin menu page.
