@@ -19,14 +19,14 @@ The second arguement is the name of your plugin options variable ( get_option('p
 
 The third and final arguement is the name of your plugin menu page. This should also be an underscore '_' separated string. This is the page where your settings fields will be.
 
-#Setting up fields and options:
+#Setting up tabs and option fields:
 
 There are two sections that need to be setup for the Plugin_Options class to work properly, tabs and options.
 
 #Tabs:
 
-Setting up the tab navigation for your plugin is super simple. Declare a variable and set it to a simple array of strings.
-$tabs = array('tabname');
+Setting up the tab navigation for your plugin is super simple. Declare a variable and set it to the current active tab.
+$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'general';
 
 You can add multiple strings to build a large tab navigation structure.
     $tabs = array('General', 'Payment', 'Stats', 'Email Templates');
