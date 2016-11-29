@@ -16,7 +16,7 @@ class Plugin_Options {
 	 *
 	 * @since    0.2.1
 	 * @access   private
-	 * @var      string    $version    The user readable name of this plugin.
+	 * @var      string    $plugin_nicename    The user readable name of this plugin.
 	 */
 	private $plugin_nicename;
 
@@ -25,7 +25,7 @@ class Plugin_Options {
 	 *
 	 * @since    0.1
 	 * @access   private
-	 * @var      string    $version    The option name of this plugin.
+	 * @var      string    $plugin_option_name    The option name of this plugin.
 	 */
         private $plugin_option_name;
 
@@ -34,7 +34,7 @@ class Plugin_Options {
 	 *
 	 * @since    0.2.1
 	 * @access   private
-	 * @var      string    $version    The menu/settings page for this plugin.
+	 * @var      string    $plugin_menu_page    The menu/settings page for this plugin.
 	 */
 	private $plugin_menu_page;
 
@@ -48,11 +48,10 @@ class Plugin_Options {
 	 */
 	public function __construct( $plugin_nicename, $plugin_option_name, $plugin_menu_page ) {
 
-		$this->plugin_slug_w_underscores = 'invoice_app';
+		$this->plugin_settings = get_option($plugin_option_name);//current plugin settings
+                $this->plugin_slug = sanitize_title($plugin_nicename);//slug version of plugin name  'my-plugin'
 
 		$this->plugin_nicename = $plugin_nicename; //plugin nicename 'My Plugin'
-		$this->plugin_slug = sanitize_title($plugin_nicename);//slug version of plugin name  'my-plugin'
-		$this->plugin_settings = get_option($plugin_option_name);//current plugin settings
 		$this->plugin_option_name = $plugin_option_name;//plugin option name
 		$this->plugin_menu_page = $plugin_menu_page;//plugin menu page
 		
@@ -250,7 +249,7 @@ class Plugin_Options {
 			}
 
 		}
-        echo '<div id="message" class="updated fade"><p>'. __('Options saved successfully.', sanitize_title($this->plugin_name) ) .'</p></div>';
+        echo '<div id="message" class="updated fade"><p>'. __('Options saved successfully.', sanitize_title($this->plugin_slug) ) .'</p></div>';
 	}
 
 	/**
