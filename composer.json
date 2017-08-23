@@ -1,0 +1,8 @@
+{
+    "name": "endifmedia/Plugin-Options",
+    "autoload": {
+        "psr-0" : {
+            "EndifMedia/Plugin-Options" : "src"
+        }
+    },
+}

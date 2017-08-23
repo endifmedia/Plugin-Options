@@ -1,5 +1,7 @@
 <?php
 
+namespace \EndifMedia\Plugin_Options\;
+
 /**
  * Class for building wicked easy plugin options pages.
  *
